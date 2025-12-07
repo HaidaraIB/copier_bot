@@ -40,20 +40,9 @@ def build_permissions_keyboard(
 
     keyboard = []
 
-    permission_names = {
-        models.Permission.BAN_USERS: BUTTONS[lang].get(
-            "permission_ban_users", "Ban/Unban Users"
-        ),
-        models.Permission.BROADCAST: BUTTONS[lang].get(
-            "permission_broadcast", "Broadcast Messages"
-        ),
-        models.Permission.MANAGE_FORCE_JOIN: BUTTONS[lang].get(
-            "permission_manage_force_join", "Manage Force Join"
-        ),
-        models.Permission.VIEW_IDS: BUTTONS[lang].get(
-            "permission_view_ids", "View IDs"
-        ),
-    }
+    permission_names = models.Permission.get_permission_names(
+        lang=lang, for_buttons=True
+    )
 
     for permission in models.Permission:
         permission_name = permission_names.get(permission, permission.value)

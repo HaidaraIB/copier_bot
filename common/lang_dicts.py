@@ -25,7 +25,7 @@ TEXTS = {
         "add_admin_instruction": (
             "اختر حساب الآدمن الذي تريد إضافته بالضغط على الزر أدناه\n\n"
             "يمكنك إرسال الid برسالة أيضاً\n\n"
-            "أو إلغاء العملية بالضغط على /admin."
+            "أو إلغاء العملية بالضغط على /admin"
         ),
         "admin_added_success": "تمت إضافة الآدمن بنجاح ✅",
         "cannot_remove_owner": "لا يمكنك إزالة مالك البوت من قائمة الآدمنز ❗️",
@@ -34,10 +34,11 @@ TEXTS = {
         "continue_with_admin_command": "للمتابعة اضغط /admin",
         "keyboard_hidden": "تم الإخفاء ✅",
         "keyboard_shown": "تم الإظهار ✅",
+        "back_done": "تم الرجوع ✅",
         "ban_instruction": (
             "اختر حساب المستخدم الذي تريد حظره بالضغط على الزر أدناه\n\n"
             "يمكنك إرسال الid برسالة أيضاً\n\n"
-            "أو إلغاء العملية بالضغط على /admin."
+            "أو إلغاء العملية بالضغط على /admin"
         ),
         "user_not_found": (
             "لم يتم العثور على المستخدم ❌\n"
@@ -69,7 +70,7 @@ TEXTS = {
         "add_force_join_chat_instruction": (
             "اختر المحادثة التي تريد إجبار المستخدمين على الانضمام إليها بالضغط على الزر أدناه\n\n"
             "يمكنك إرسال الid برسالة أيضاً\n\n"
-            "أو إلغاء العملية بالضغط على /admin."
+            "أو إلغاء العملية بالضغط على /admin"
         ),
         "enter_chat_link_instruction": (
             "تم العثور على المحادثة: <b>{chat_title}</b>\n\n"
@@ -82,6 +83,7 @@ TEXTS = {
         "no_force_join_chats": "لا توجد محادثات إجبار على الانضمام حالياً ❗️",
         "force_join_chats_list_title": "قائمة محادثات الإجبار على الانضمام:",
         "invalid_chat_id": "آيدي المحادثة غير صحيح ❌",
+        "chat_found": "تم العثور على المحادثة ✅",
         "chat_not_found": "لم يتم العثور على المحادثة ❌\nتأكد من الآيدي أو من أن البوت عضو في المحادثة",
         "chat_link_required": "المحادثة لا تحتوي على رابط دعوة. يرجى إرسال رابط الدعوة يدوياً.",
         "invalid_chat_link": "رابط المحادثة غير صحيح ❌\nيجب أن يبدأ بـ https://t.me/ أو @",
@@ -99,6 +101,8 @@ TEXTS = {
         "permission_broadcast": "إرسال رسائل جماعية",
         "permission_manage_force_join": "إدارة محادثات الإجبار على الانضمام",
         "permission_view_ids": "عرض معرفات المستخدمين/المحادثات",
+        "permission_manage_users": "إدارة المستخدمين",
+        "permission_manage_message_copy": "إدارة نسخ الرسائل",
         "permission_manage_permissions": "إدارة الصلاحيات",
         "permission_manage_admins": "إدارة الآدمنز",
         "toggle_permission": "تبديل الصلاحية",
@@ -129,6 +133,67 @@ TEXTS = {
         "excel_no": "لا",
         "lang_arabic": "العربية",
         "lang_english": "English",
+        "message_copy_settings_title": "إدارة نسخ الرسائل 📋",
+        "add_message_copy_source_instruction": (
+            "اختر <b><i>المحادثة المصدر</i></b> التي تريد نسخ الرسائل منها بالضغط على الزر أدناه\n\n"
+            "يمكنك إرسال الid برسالة أيضاً\n\n"
+            "أو إلغاء العملية بالضغط على /admin"
+        ),
+        "add_message_copy_target_instruction": (
+            "اختر <b><i>المحادثة الهدف</i></b> التي تريد نسخ الرسائل إليها بالضغط على الزر أدناه\n\n"
+            "يمكنك إرسال الid برسالة أيضاً\n\n"
+            "أو إلغاء العملية بالضغط على /admin"
+        ),
+        "add_message_copy_token_instruction": "أرسل اسم الرمز المميز (Token Name) لهذه العملية:",
+        "add_message_copy_links_instruction": (
+            "أرسل رسالة من 4 أسطر تحتوي على الروابط التالية:\n\n"
+            "<a href='google.com'>DexT</a>\n"
+            "<a href='google.com'>Screener</a>\n"
+            "<a href='google.com'>Buy</a>\n"
+            "<a href='google.com'>Trending</a>\n\n"
+            "يجب أن تكون كل كلمة عبارة عن رابط نصي (Create Link formatting)"
+        ),
+        "invalid_links_format": (
+            "تنسيق الروابط غير صحيح ❌\n\n"
+            "يجب إرسال رسالة من 4 أسطر:\n"
+            "<a href='google.com'>DexT</a>\n"
+            "<a href='google.com'>Screener</a>\n"
+            "<a href='google.com'>Buy</a>\n"
+            "<a href='google.com'>Trending</a>\n\n"
+            "تأكد من أن كل كلمة عبارة عن رابط نصي"
+        ),
+        "message_copy_added_success": "تمت إضافة نسخ الرسائل بنجاح ✅",
+        "message_copy_removed_success": "تمت إزالة نسخ الرسائل بنجاح ✅",
+        "remove_message_copy_instruction": "اختر من القائمة أدناه نسخ الرسائل التي تريد إزالتها.",
+        "no_message_copies": "لا توجد عمليات نسخ رسائل حالياً ❗️",
+        "message_copies_list_title": "قائمة عمليات نسخ الرسائل:",
+        "message_copy_info": "معلومات نسخ الرسائل:",
+        "select_message_copy_to_edit": "اختر نسخ الرسائل التي تريد تعديلها:",
+        "select_field_to_edit": "اختر الحقل الذي تريد تعديله:",
+        "edit_source_chat_instruction": (
+            "اختر <b><i>المحادثة المصدر</i></b> الجديدة بالضغط على الزر أدناه\n\n"
+            "يمكنك إرسال الid برسالة أيضاً\n\n"
+            "أو إلغاء العملية بالضغط على /admin"
+        ),
+        "edit_target_chat_instruction": (
+            "اختر <b><i>المحادثة الهدف</i></b> الجديدة بالضغط على الزر أدناه\n\n"
+            "يمكنك إرسال الid برسالة أيضاً\n\n"
+            "أو إلغاء العملية بالضغط على /admin"
+        ),
+        "edit_token_name_instruction": "أرسل اسم الرمز المميز (Token Name) الجديد:",
+        "message_copy_updated_success": "تم تحديث نسخ الرسائل بنجاح ✅",
+        "message_copy_not_found": "لم يتم العثور على نسخ الرسائل ❌",
+        "invalid_token_name": "اسم الرمز المميز غير صحيح ❌",
+        "go_back_with_back_command": "يمكنك العودة بالضغط على /back",
+        "cancel_with_admin_command": "يمكنك إلغاء العملية بالضغط على /admin",
+        "edit_links_instruction": (
+            "أرسل الروابط الجديدة بالتنسيق:\n\n"
+            "<a href='google.com'>DexT</a>\n"
+            "<a href='google.com'>Screener</a>\n"
+            "<a href='google.com'>Buy</a>\n"
+            "<a href='google.com'>Trending</a>\n\n"
+            "يجب أن تكون كل كلمة عبارة عن رابط نصي (Create Link formatting)"
+        ),
     },
     models.Language.ENGLISH: {
         "user_welcome_msg": "Welcome...",
@@ -154,7 +219,7 @@ TEXTS = {
         "add_admin_instruction": (
             "Choose the admin account you want to add by clicking the button below\n\n"
             "You can also send the ID in a message\n\n"
-            "Or cancel the operation by pressing /admin."
+            "Or cancel the operation by pressing /admin"
         ),
         "admin_added_success": "Admin added successfully ✅",
         "cannot_remove_owner": "You cannot remove the bot owner from the admin list ❗️",
@@ -163,10 +228,11 @@ TEXTS = {
         "continue_with_admin_command": "To continue press /admin",
         "keyboard_hidden": "Hidden ✅",
         "keyboard_shown": "Shown ✅",
+        "back_done": "Back done ✅",
         "ban_instruction": (
             "Choose the user account you want to ban by clicking the button below\n\n"
             "You can also send the ID in a message\n\n"
-            "Or cancel the operation by pressing /admin."
+            "Or cancel the operation by pressing /admin"
         ),
         "user_not_found": (
             "User not found ❌\n"
@@ -198,7 +264,7 @@ TEXTS = {
         "add_force_join_chat_instruction": (
             "Choose the chat you want to force users to join by clicking the button below\n\n"
             "You can also send the ID in a message\n\n"
-            "Or cancel the operation by pressing /admin."
+            "Or cancel the operation by pressing /admin"
         ),
         "enter_chat_link_instruction": (
             "Chat found: <b>{chat_title}</b>\n\n"
@@ -211,6 +277,7 @@ TEXTS = {
         "no_force_join_chats": "No force join chats currently ❗️",
         "force_join_chats_list_title": "Force Join Chats List:",
         "invalid_chat_id": "Invalid chat ID ❌",
+        "chat_found": "Chat found ✅",
         "chat_not_found": "Chat not found ❌\nMake sure of the ID or that the bot is a member of the chat",
         "chat_link_required": "The chat doesn't have an invite link. Please send the invite link manually.",
         "invalid_chat_link": "Invalid chat link ❌\nMust start with https://t.me/ or @",
@@ -228,6 +295,8 @@ TEXTS = {
         "permission_broadcast": "Broadcast Messages",
         "permission_manage_force_join": "Manage Force Join Chats",
         "permission_view_ids": "View User/Chat IDs",
+        "permission_manage_users": "Manage Users",
+        "permission_manage_message_copy": "Manage Message Copy",
         "permission_manage_permissions": "Manage Permissions",
         "permission_manage_admins": "Manage Admins",
         "toggle_permission": "Toggle Permission",
@@ -258,6 +327,67 @@ TEXTS = {
         "excel_no": "No",
         "lang_arabic": "Arabic",
         "lang_english": "English",
+        "message_copy_settings_title": "Manage Message Copies 📋",
+        "add_message_copy_source_instruction": (
+            "Choose the <b><i>Source Chat</i></b> you want to copy messages from by clicking the button below\n\n"
+            "You can also send the ID in a message\n\n"
+            "Or cancel the operation by pressing /admin"
+        ),
+        "add_message_copy_target_instruction": (
+            "Choose the <b><i>Target Chat</i></b> you want to copy messages to by clicking the button below\n\n"
+            "You can also send the ID in a message\n\n"
+            "Or cancel the operation by pressing /admin"
+        ),
+        "add_message_copy_token_instruction": "Send the token name for this operation:",
+        "add_message_copy_links_instruction": (
+            "Send a message with 4 lines containing the following links:\n\n"
+            "<a href='google.com'>DexT</a>\n"
+            "<a href='google.com'>Screener</a>\n"
+            "<a href='google.com'>Buy</a>\n"
+            "<a href='google.com'>Trending</a>\n\n"
+            "Each word must be a text link (Create Link formatting)"
+        ),
+        "invalid_links_format": (
+            "Invalid links format ❌\n\n"
+            "You must send a message with 4 lines:\n"
+            "<a href='google.com'>DexT</a>\n"
+            "<a href='google.com'>Screener</a>\n"
+            "<a href='google.com'>Buy</a>\n"
+            "<a href='google.com'>Trending</a>\n\n"
+            "Make sure each word is a text link"
+        ),
+        "message_copy_added_success": "Message copy added successfully ✅",
+        "message_copy_removed_success": "Message copy removed successfully ✅",
+        "remove_message_copy_instruction": "Choose from the list below the message copy you want to remove.",
+        "no_message_copies": "No message copies currently ❗️",
+        "message_copies_list_title": "Message Copies List:",
+        "message_copy_info": "Message Copy Information:",
+        "select_message_copy_to_edit": "Select the message copy you want to edit:",
+        "select_field_to_edit": "Select the field you want to edit:",
+        "edit_source_chat_instruction": (
+            "Choose the new <b><i>Source Chat</i></b> by clicking the button below\n\n"
+            "You can also send the ID in a message\n\n"
+            "Or cancel the operation by pressing /admin"
+        ),
+        "edit_target_chat_instruction": (
+            "Choose the new <b><i>Target Chat</i></b> by clicking the button below\n\n"
+            "You can also send the ID in a message\n\n"
+            "Or cancel the operation by pressing /admin"
+        ),
+        "edit_token_name_instruction": "Send the new token name:",
+        "message_copy_updated_success": "Message copy updated successfully ✅",
+        "message_copy_not_found": "Message copy not found ❌",
+        "invalid_token_name": "Invalid token name ❌",
+        "go_back_with_back_command": "You can go back by pressing /back",
+        "cancel_with_admin_command": "You can cancel the operation by pressing /admin",
+        "edit_links_instruction": (
+            "Send the new links in the following format:\n\n"
+            "<a href='google.com'>DexT</a>\n"
+            "<a href='google.com'>Screener</a>\n"
+            "<a href='google.com'>Buy</a>\n"
+            "<a href='google.com'>Trending</a>\n\n"
+            "Each word must be a text link (Create Link formatting)"
+        ),
     },
 }
 
@@ -305,10 +435,20 @@ BUTTONS = {
         "permission_broadcast": "إرسال رسائل جماعية",
         "permission_manage_force_join": "إدارة محادثات الإجبار على الانضمام",
         "permission_view_ids": "عرض معرفات المستخدمين/المحادثات",
+        "permission_manage_users": "إدارة المستخدمين",
+        "permission_manage_message_copy": "إدارة نسخ الرسائل",
         "permission_manage_permissions": "إدارة الصلاحيات",
         "permission_manage_admins": "إدارة الآدمنز",
         "manage_users_settings": "إدارة المستخدمين 👥",
         "export_users_to_excel": "تصدير المستخدمين إلى Excel 📊",
+        "message_copy_settings": "إعدادات نسخ الرسائل 📋",
+        "add_message_copy": "إضافة نسخ رسائل ➕",
+        "remove_message_copy": "حذف نسخ رسائل ✖️",
+        "show_message_copies": "عرض نسخ الرسائل 👓",
+        "edit_message_copy": "تعديل نسخ رسائل ✏️",
+        "edit_source_chat": "تعديل المحادثة المصدر",
+        "edit_target_chat": "تعديل المحادثة الهدف",
+        "edit_token_name": "تعديل اسم الرمز المميز",
     },
     models.Language.ENGLISH: {
         "check_joined": "Verify ✅",
@@ -353,10 +493,20 @@ BUTTONS = {
         "permission_broadcast": "Broadcast Messages",
         "permission_manage_force_join": "Manage Force Join Chats",
         "permission_view_ids": "View User/Chat IDs",
+        "permission_manage_users": "Manage Users",
+        "permission_manage_message_copy": "Manage Message Copy",
         "permission_manage_permissions": "Manage Permissions",
         "permission_manage_admins": "Manage Admins",
         "manage_users_settings": "Manage Users 👥",
         "export_users_to_excel": "Export Users to Excel 📊",
+        "message_copy_settings": "Message Copy Settings 📋",
+        "add_message_copy": "Add Message Copy ➕",
+        "remove_message_copy": "Remove Message Copy ✖️",
+        "show_message_copies": "Show Message Copies 👓",
+        "edit_message_copy": "Edit Message Copy ✏️",
+        "edit_source_chat": "Edit Source Chat",
+        "edit_target_chat": "Edit Target Chat",
+        "edit_token_name": "Edit Token Name",
     },
 }
 

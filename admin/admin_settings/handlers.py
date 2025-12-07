@@ -429,18 +429,9 @@ async def show_admin_permissions(update: Update, context: ContextTypes.DEFAULT_T
         permissions_text = TEXTS[lang]["current_permissions"] + "\n"
 
         if selected_permissions:
-            permission_names = {
-                models.Permission.BAN_USERS: TEXTS[lang].get(
-                    "permission_ban_users", "Ban/Unban Users"
-                ),
-                models.Permission.BROADCAST: TEXTS[lang].get(
-                    "permission_broadcast", "Broadcast Messages"
-                ),
-                models.Permission.MANAGE_FORCE_JOIN: TEXTS[lang].get(
-                    "permission_manage_force_join", "Manage Force Join"
-                ),
-                models.Permission.VIEW_IDS: TEXTS[lang].get("permission_view_ids", "View IDs"),
-            }
+            permission_names = models.Permission.get_permission_names(
+                lang=lang, for_buttons=False
+            )
             for perm in selected_permissions:
                 permissions_text += f"✅ {permission_names.get(perm, perm.value)}\n"
         else:
@@ -478,7 +469,8 @@ async def toggle_admin_permission(update: Update, context: ContextTypes.DEFAULT_
                 s.query(models.AdminPermission)
                 .filter(
                     models.AdminPermission.admin_id == admin_id,
-                    models.AdminPermission.permission == models.Permission(permission_str),
+                    models.AdminPermission.permission
+                    == models.Permission(permission_str),
                 )
                 .first()
             )

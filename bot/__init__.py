@@ -1,0 +1,1 @@
+from bot.handlers import copy_message_handler

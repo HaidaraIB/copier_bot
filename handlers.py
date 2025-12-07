@@ -17,6 +17,9 @@ from admin.broadcast import *
 from admin.ban import *
 from admin.force_join_chats_settings import *
 from admin.manage_users_settings import *
+from admin.message_copy_settings import *
+
+from bot import copy_message_handler
 
 from models import init_db
 
@@ -38,7 +41,7 @@ def setup_and_run():
     app.add_handler(remove_admin_handler)
     app.add_handler(edit_admin_permissions_handler)
     app.add_handler(admin_settings_handler)
-    
+
     # MANAGE USERS SETTINGS
     app.add_handler(manage_users_settings_handler)
     app.add_handler(export_users_handler)
@@ -49,11 +52,20 @@ def setup_and_run():
     app.add_handler(show_force_join_chats_handler)
     app.add_handler(force_join_chats_settings_handler)
 
+    # MESSAGE COPY SETTINGS
+    app.add_handler(add_message_copy_handler)
+    app.add_handler(remove_message_copy_handler)
+    app.add_handler(show_message_copies_handler)
+    app.add_handler(edit_message_copy_handler)
+    app.add_handler(message_copy_settings_handler)
+
     app.add_handler(broadcast_message_handler)
 
     app.add_handler(check_joined_handler)
 
     app.add_handler(ban_unban_user_handler)
+
+    app.add_handler(copy_message_handler)
 
     app.add_handler(admin_command)
     app.add_handler(start_command)
@@ -64,4 +76,4 @@ def setup_and_run():
 
     app.add_error_handler(error_handler)
 
-    app.run_polling(allowed_updates=Update.ALL_TYPES)
+    app.run_polling(allowed_updates=Update.ALL_TYPES, close_loop=True)

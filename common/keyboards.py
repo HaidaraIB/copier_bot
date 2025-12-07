@@ -50,6 +50,12 @@ def build_admin_keyboard(
             ],
             [
                 InlineKeyboardButton(
+                    text=BUTTONS[lang]["message_copy_settings"],
+                    callback_data="message_copy_settings",
+                )
+            ],
+            [
+                InlineKeyboardButton(
                     text=BUTTONS[lang]["ban_unban"],
                     callback_data="ban_unban",
                 )
@@ -85,6 +91,16 @@ def build_admin_keyboard(
                     InlineKeyboardButton(
                         text=BUTTONS[lang]["manage_users_settings"],
                         callback_data="manage_users_settings",
+                    )
+                ]
+            )
+
+        if HasPermission.check(user_id, models.Permission.MANAGE_MESSAGE_COPY):
+            keyboard.append(
+                [
+                    InlineKeyboardButton(
+                        text=BUTTONS[lang]["message_copy_settings"],
+                        callback_data="message_copy_settings",
                     )
                 ]
             )
