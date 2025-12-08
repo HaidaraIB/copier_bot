@@ -449,6 +449,7 @@ BUTTONS = {
         "edit_source_chat": "تعديل المحادثة المصدر",
         "edit_target_chat": "تعديل المحادثة الهدف",
         "edit_token_name": "تعديل اسم الرمز المميز",
+        "edit_links": "تعديل الروابط",
     },
     models.Language.ENGLISH: {
         "check_joined": "Verify ✅",
@@ -507,6 +508,7 @@ BUTTONS = {
         "edit_source_chat": "Edit Source Chat",
         "edit_target_chat": "Edit Target Chat",
         "edit_token_name": "Edit Token Name",
+        "edit_links": "Edit Links",
     },
 }
 
