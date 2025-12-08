@@ -25,7 +25,7 @@ from models import init_db
 
 from MyApp import MyApp
 
-from TeleClientSingleton import TeleClientSingleton
+from TeleClientSingleton import TeleClientSingleton, TeleBotSingleton
 from telethon import events
 
 
@@ -80,6 +80,9 @@ def setup_and_run():
     tele_client = TeleClientSingleton()
     tele_client.add_event_handler(copy_message_to_target_chats, events.NewMessage())
 
+    tele_bot = TeleBotSingleton()
+
     app.run_polling(allowed_updates=Update.ALL_TYPES, close_loop=False)
 
     tele_client.disconnect()
+    tele_bot.disconnect()
