@@ -194,6 +194,7 @@ TEXTS = {
             "<a href='google.com'>Trending</a>\n\n"
             "يجب أن تكون كل كلمة عبارة عن رابط نصي (Create Link formatting)"
         ),
+        "client_should_join_source_chat": "يجب أن يكون اليوزربوت عضو في المحادثة المصدر ليتمكن من نسخ الرسائل",
     },
     models.Language.ENGLISH: {
         "user_welcome_msg": "Welcome...",
@@ -388,6 +389,7 @@ TEXTS = {
             "<a href='google.com'>Trending</a>\n\n"
             "Each word must be a text link (Create Link formatting)"
         ),
+        "client_should_join_source_chat": "The userbot must be a member of the source chat to be able to copy messages",
     },
 }
 

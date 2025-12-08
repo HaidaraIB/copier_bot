@@ -19,11 +19,14 @@ from admin.force_join_chats_settings import *
 from admin.manage_users_settings import *
 from admin.message_copy_settings import *
 
-from bot import copy_message_handler
+from bot import copy_message_to_target_chats
 
 from models import init_db
 
 from MyApp import MyApp
+
+from TeleClientSingleton import TeleClientSingleton
+from telethon import events
 
 
 def setup_and_run():
@@ -65,8 +68,6 @@ def setup_and_run():
 
     app.add_handler(ban_unban_user_handler)
 
-    app.add_handler(copy_message_handler)
-
     app.add_handler(admin_command)
     app.add_handler(start_command)
     app.add_handler(find_id_handler)
@@ -76,4 +77,9 @@ def setup_and_run():
 
     app.add_error_handler(error_handler)
 
-    app.run_polling(allowed_updates=Update.ALL_TYPES, close_loop=True)
+    tele_client = TeleClientSingleton()
+    tele_client.add_event_handler(copy_message_to_target_chats, events.NewMessage())
+
+    app.run_polling(allowed_updates=Update.ALL_TYPES, close_loop=False)
+
+    tele_client.disconnect()

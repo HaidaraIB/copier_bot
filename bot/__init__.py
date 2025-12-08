@@ -1,1 +1,1 @@
-from bot.handlers import copy_message_handler
+from bot.handlers import copy_message_to_target_chats

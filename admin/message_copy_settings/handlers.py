@@ -27,6 +27,7 @@ from common.keyboards import (
     build_keyboard,
 )
 from common.lang_dicts import TEXTS, BUTTONS, get_lang
+from TeleClientSingleton import TeleBotSingleton, TeleClientSingleton
 from custom_filters import PrivateChatAndAdmin, PermissionFilter
 from start import admin_command
 import models
@@ -115,9 +116,9 @@ async def get_source_chat_id(update: Update, context: ContextTypes.DEFAULT_TYPE)
             else:
                 source_chat_id = int(update.message.text)
 
-        # Get chat info
         try:
             if not update.callback_query:
+                await TeleClientSingleton().get_entity(source_chat_id)
                 chat = await context.bot.get_chat(chat_id=source_chat_id)
                 context.user_data["source_chat_id"] = source_chat_id
                 context.user_data["source_chat_title"] = (
@@ -125,6 +126,7 @@ async def get_source_chat_id(update: Update, context: ContextTypes.DEFAULT_TYPE)
                 )
             else:
                 await update.callback_query.delete_message()
+
             await context.bot.send_message(
                 chat_id=update.effective_chat.id,
                 text=(
@@ -154,12 +156,19 @@ async def get_source_chat_id(update: Update, context: ContextTypes.DEFAULT_TYPE)
                     resize_keyboard=True,
                 ),
             )
-            return TARGET_CHAT_ID
-        except Exception as e:
+        except ValueError:
+            await context.bot.send_message(
+                chat_id=update.effective_chat.id,
+                text=TEXTS[lang]["client_should_join_source_chat"],
+            )
+            return SOURCE_CHAT_ID
+        except Exception:
             await context.bot.send_message(
                 chat_id=update.effective_chat.id,
                 text=TEXTS[lang]["chat_not_found"],
             )
+            return SOURCE_CHAT_ID
+        return TARGET_CHAT_ID
 
 
 back_to_get_source_chat_id = add_message_copy
@@ -612,6 +621,7 @@ async def save_source_chat(update: Update, context: ContextTypes.DEFAULT_TYPE):
             new_source_chat_id = int(update.message.text)
 
         try:
+            await TeleClientSingleton().get_entity(new_source_chat_id)
             new_source_chat = await context.bot.get_chat(chat_id=new_source_chat_id)
             with models.session_scope() as s:
                 message_copy = s.get(models.MessageCopy, message_copy_id)
@@ -627,6 +637,8 @@ async def save_source_chat(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 reply_markup=build_admin_keyboard(lang, update.effective_user.id),
             )
             return ConversationHandler.END
+        except ValueError:
+            await update.message.reply_text(text=TEXTS[lang]["client_should_join_source_chat"])
         except Exception:
             await update.message.reply_text(text=TEXTS[lang]["chat_not_found"])
 
