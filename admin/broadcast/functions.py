@@ -24,10 +24,10 @@ async def send_to(users: list[int], context: ContextTypes.DEFAULT_TYPE):
                 send_func = getattr(context.bot, f"send_{media_type}")
                 await send_func(
                     chat_id=user,
-                    caption=msg.caption,
+                    caption=msg.caption_html,
                     **{media_type: media},
                 )
             else:
-                await context.bot.send_message(chat_id=user, text=msg.text)
+                await context.bot.send_message(chat_id=user, text=msg.text_html)
         except:
             continue
